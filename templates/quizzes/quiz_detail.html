@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}{{ quiz.title }}{% endblock %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">{{ quiz.title }}</h1>
+<form method="post" action="{% url 'quizzes:submit' quiz.pk %}">
+  {% csrf_token %}
+  <div class="space-y-6">
+    {% for q in questions %}
+      <div class="bg-white p-4 rounded shadow">
+        <p class="font-medium">Q{{ forloop.counter }}. {{ q.text }}</p>
+        <div class="mt-2 space-y-2">
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="question_{{ q.id }}" value="A" required>
+            <span>{{ q.option1 }}</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="question_{{ q.id }}" value="B" required>
+            <span>{{ q.option2 }}</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="question_{{ q.id }}" value="C" required>
+            <span>{{ q.option3 }}</span>
+          </label>
+          <label class="flex items-center space-x-2">
+            <input type="radio" name="question_{{ q.id }}" value="D" required>
+            <span>{{ q.option4 }}</span>
+          </label>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="mt-6">
+    <button type="submit" class="px-4 py-2 bg-green-600 text-white rounded">Submit</button>
+    <a href="{% url 'quizzes:list' %}" class="ml-2 text-sm text-gray-600">Back</a>
+  </div>
+</form>
+{% endblock %}

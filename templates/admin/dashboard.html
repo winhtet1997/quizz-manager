@@ -1,0 +1,46 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block title %}Dashboard | Quiz Manager{% endblock %}
+
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">📊 Quiz Manager Dashboard</h1>
+
+<div style="display: flex; gap: 20px; flex-wrap: wrap;">
+  <div style="background: #2563eb; color: white; padding: 20px; border-radius: 10px; min-width: 200px;">
+    <h2 style="font-size: 18px;">Total Quizzes</h2>
+    <p style="font-size: 32px; font-weight: bold;">{{ quiz_count }}</p>
+  </div>
+
+  <div style="background: #16a34a; color: white; padding: 20px; border-radius: 10px; min-width: 200px;">
+    <h2 style="font-size: 18px;">Total Questions</h2>
+    <p style="font-size: 32px; font-weight: bold;">{{ question_count }}</p>
+  </div>
+</div>
+
+<hr style="margin: 20px 0;">
+<h2 style="font-size: 20px; font-weight: bold;">Quiz History & Scores</h2>
+<table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+  <thead>
+    <tr style="background: #f3f4f6; text-align: left;">
+      <th style="padding: 10px; border-bottom: 1px solid #ddd;">Quiz</th>
+      <th style="padding: 10px; border-bottom: 1px solid #ddd;">Total Attempts</th>
+      <th style="padding: 10px; border-bottom: 1px solid #ddd;">Average Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for quiz in quiz_attempts %}
+    <tr>
+      <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ quiz.title }}</td>
+      <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ quiz.attempts }}</td>
+      <td style="padding: 10px; border-bottom: 1px solid #ddd;">{{ quiz.average_score }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<h2 style="font-size: 20px; font-weight: bold;">Manage</h2>
+<ul>
+  <li><a href="{% url 'admin:quizzes_quiz_changelist' %}">📘 Manage Quizzes</a></li>
+  <li><a href="{% url 'admin:quizzes_question_changelist' %}">❓ Manage Questions</a></li>
+</ul>
+{% endblock %}

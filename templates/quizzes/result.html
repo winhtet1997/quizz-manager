@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold mb-2">Result</h2>
+    <p class="mb-2">You scored <strong>{{ score }}</strong> out of <strong>{{ total }}</strong>.</p>
+    <p class="mb-4">Percentage: {{ attempt.percentage }}%</p>
+    <a href="{% url 'quizzes:detail' quiz.pk %}" class="px-3 py-2 bg-blue-600 text-white rounded">Retake</a>
+    <a href="{% url 'quizzes:list' %}" class="ml-2 text-sm text-gray-600">Back to list</a>
+  </div>
+{% endblock %}
