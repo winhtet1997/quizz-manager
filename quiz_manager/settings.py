@@ -9,7 +9,10 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -24,7 +27,7 @@ SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY",
     'django-insecure-hg94=7#%nuzg-ey!j3(rhu%ft4o_x(rz+v4q6_9m+56k_0*cwe')
 
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
 ALLOWED_HOSTS = [
     "localhost",
