@@ -27,16 +27,18 @@ A simple offline-capable web application built with **Django** and **Tailwind CS
 
 ---
 
-## Technical Details
+## Tech Stack
 
-- **Framework**: Django 4.x
-- **Frontend**: Tailwind CSS for styling
-- **Database**: SQLite (default Django database)
-- **Authentication**: Django built-in authentication for user quiz attempts
-- **Models**:
-  - `Quiz`: Stores quiz metadata
-  - `Question`: Stores question text, options, and correct answer
-  - `QuizAttempt`: Tracks user attempts and scores
+| Component | Tool |
+|------------|------|
+| Backend | Django 4.2 |
+| Frontend | Tailwind CSS |
+| Web Server | Gunicorn |
+| Static Files | WhiteNoise |
+| Database | SQLite (local) |
+| Deployment | Render (Free Tier) |
+| Database | SQLite (default Django database) |
+| Authentication | Django built-in authentication for user quiz attempts |
 
 ---
 
