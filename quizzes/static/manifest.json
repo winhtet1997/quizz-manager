@@ -1,0 +1,6 @@
+{
+  "name": "Offline Quiz Manager",
+  "short_name": "Quiz",
+  "start_url": "/",
+  "display": "standalone"
+}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Available Quizzes{% endblock %}
+{% block content %}
+<h1 class="text-2xl font-bold mb-4">Available Quizzes</h1>
+<div class="grid grid-cols-1 gap-4">
+  {% for quiz in quizzes %}
+  <div class="bg-white p-4 rounded shadow">
+    <div class="flex justify-between items-center">
+      <div>
+        <h2 class="font-semibold text-lg">{{ quiz.title }}</h2>
+        <p class="text-sm text-gray-600">{{ quiz.description|default:"No description" }}</p>
+      </div>
+      <div>
+        <a href="{% url 'quizzes:detail' quiz.pk %}" class="px-3 py-2 bg-blue-600 text-white rounded">Take</a>
+      </div>
+    </div>
+  </div>
+  {% empty %}
+    <p>No quizzes yet. Create one in the admin.</p>
+  {% endfor %}
+</div>
+{% endblock %}
