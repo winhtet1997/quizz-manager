@@ -2,11 +2,25 @@ from django.contrib import admin
 from django.template.response import TemplateResponse
 from django.urls import path
 from .models import Quiz, Question, QuizAttempt
+from django import forms
 
 
-# Inline question editor inside Quiz
+# --- Custom form for QuestionInline ---
+class QuestionInlineForm(forms.ModelForm):
+    class Meta:
+        model = Question
+        fields = '__all__'
+        widgets = {
+            'option1': forms.TextInput(attrs={'style': 'width: 100%;'}),
+            'option2': forms.TextInput(attrs={'style': 'width: 100%;'}),
+            'option3': forms.TextInput(attrs={'style': 'width: 100%;'}),
+            'option4': forms.TextInput(attrs={'style': 'width: 100%;'}),
+        }
+
+# --- Inline question editor inside Quiz ---
 class QuestionInline(admin.TabularInline):
     model = Question
+    form = QuestionInlineForm  # <-- assign custom form here
     extra = 1
 
 
