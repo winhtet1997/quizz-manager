@@ -1,5 +1,5 @@
 {
-  "name": "Offline Quiz Manager",
+  "name": "Quiz Manager",
   "short_name": "Quiz",
   "start_url": "/",
   "display": "standalone"
