@@ -13,7 +13,7 @@
 <body class="bg-gray-50 text-gray-800 min-h-screen">
   <header class="bg-white shadow p-4 mb-6">
     <div class="container mx-auto flex justify-between items-center">
-      <a href="{% url 'quizzes:list' %}" class="text-xl font-semibold">Offline Quiz Manager</a>
+      <a href="{% url 'quizzes:list' %}" class="text-xl font-semibold">Quiz Manager</a>
       <nav>
         <a class="mr-4" href="{% url 'quizzes:list' %}">Quizzes</a>
         {% if user.is_authenticated %}
@@ -34,10 +34,6 @@
     </div>{% endif %}
     {% block content %}{% endblock %}
   </main>
-
-  <footer class="text-center text-sm text-gray-500 py-6">
-    Built with Django • Offline capable demo
-  </footer>
 
   <!-- register service worker -->
   <script>
