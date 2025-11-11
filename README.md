@@ -1,6 +1,6 @@
-# Offline Quiz Manager
+# Quiz Manager
 
-A simple offline-capable web application built with **Django** and **Tailwind CSS** that allows users to create, manage, and take quizzes. This project was developed as part of a technical task to demonstrate Django, Python, and Tailwind CSS skills.
+A simple web application built with **Django** and **Tailwind CSS** that allows users to create, manage, and take quizzes. This project was developed as part of a technical task to demonstrate Django, Python, and Tailwind CSS skills.
 
 ---
 
